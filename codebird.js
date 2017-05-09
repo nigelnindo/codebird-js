@@ -544,37 +544,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return xml;
         }
         console.log("Not a react native project");
-        // first, try the W3-standard object
-        if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object" && window && typeof window.XMLHttpRequest !== "undefined") {
-          xml = new window.XMLHttpRequest();
-          // then, try Titanium framework object
-        } else if ((typeof Ti === "undefined" ? "undefined" : _typeof(Ti)) === "object" && Ti && typeof Ti.Network.createHTTPClient !== "undefined") {
-            xml = Ti.Network.createHTTPClient();
-            // are we in an old Internet Explorer?
-          } else if (typeof ActiveXObject !== "undefined") {
-              try {
-                xml = new ActiveXObject("Microsoft.XMLHTTP");
-              } catch (e) {
-                throw "ActiveXObject object not defined.";
-              }
-              // now, consider RequireJS and/or Node.js objects
-            } else if (typeof require === "function") {
-                var XMLHttpRequest;
-                // look for xmlhttprequest module
-                try {
-                  XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-                  xml = new XMLHttpRequest();
-                } catch (e1) {
-                  // or maybe the user is using xhr2
-                  try {
-                    XMLHttpRequest = require("xhr2");
-                    xml = new XMLHttpRequest();
-                  } catch (e2) {
-                    throw "xhr2 object not defined, cancelling.";
-                  }
-                }
-              }
-        return xml;
       }
 
       /**
