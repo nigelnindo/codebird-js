@@ -482,10 +482,11 @@
     _getXmlRequestObject() {
       let xml = null;
       //react-native
-      if (XMLHttpRequest !== null){
+      if (XMLHttpRequest){
         xml = new XMLHttpRequest();
         return xml;
       }
+      console.log("Not a react native project");
       // first, try the W3-standard object
       if (typeof window === "object"
         && window

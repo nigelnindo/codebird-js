@@ -539,10 +539,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       value: function _getXmlRequestObject() {
         var xml = null;
         //check for react-native project
-        if (XMLHttpRequest !== null){
+        if (XMLHttpRequest){
           xml = new XMLHttpRequest();
           return xml;
         }
+        console.log("Not a react native project");
         // first, try the W3-standard object
         if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object" && window && typeof window.XMLHttpRequest !== "undefined") {
           xml = new window.XMLHttpRequest();
