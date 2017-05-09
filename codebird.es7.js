@@ -481,6 +481,11 @@
      */
     _getXmlRequestObject() {
       let xml = null;
+      //react-native
+      if (XMLHttpRequest !== null){
+        xml = new XMLHttpRequest();
+        return xml;
+      }
       // first, try the W3-standard object
       if (typeof window === "object"
         && window
